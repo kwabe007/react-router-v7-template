@@ -5,10 +5,13 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "react-router";
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { serverSideClientEnv } from "~/env.server";
+import { useEffect } from "react";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -41,8 +44,45 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+export async function loader({ request }: Route.LoaderArgs) {
+  return { clientEnv: serverSideClientEnv };
+}
+
 export default function App() {
-  return <Outlet />;
+  const { clientEnv } = useLoaderData<typeof loader>();
+
+  useEffect(() => {
+    const domain = clientEnv.PUBLIC_PLAUSIBLE_DOMAIN;
+    const endpoint = clientEnv.PUBLIC_PLAUSIBLE_ENDPOINT;
+
+    if (domain && endpoint && !window.__plausibleInitialized) {
+      import("@plausible-analytics/tracker/plausible.js").then(({ init }) => {
+        init({
+          domain,
+          // Use an app route which proxies an external plausible instance to prevent adblockers from blocking the request.
+          endpoint,
+          captureOnLocalhost: clientEnv.PUBLIC_PLAUSIBLE_CAPTURE_ON_LOCALHOST,
+        });
+      });
+      window.__plausibleInitialized = true;
+    }
+  }, []);
+
+  useEffect(() => {
+    // Setting this to `true` allows us to know that all following requests are SPA requests.
+    window.__spaNavigation = true;
+  }, []);
+
+  return (
+    <>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `window.__clientEnv = ${JSON.stringify(clientEnv)}`,
+        }}
+      />
+      <Outlet />
+    </>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
