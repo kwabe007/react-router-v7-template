@@ -1,0 +1,9 @@
+# Build/Test artifacts:
+build
+coverage
+
+# pnpm lock file
+pnpm-lock.yaml
+
+# JetBrains IDE folder
+.idea
