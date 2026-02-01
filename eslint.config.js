@@ -21,7 +21,10 @@ export default defineConfig([
   ...tsEslint.configs.recommended,
   {
     rules: {
-      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { varsIgnorePattern: "^_" },
+      ],
     },
   },
 

@@ -137,15 +137,15 @@ body {
 }
 
 @utility text-h1 {
-  @apply text-2xl font-bold tracking-tight xl:text-4xl uppercase;
+  @apply text-3xl font-bold tracking-tight xl:text-4xl uppercase;
 }
 
 @utility text-h2 {
-  @apply text-2xl tracking-tight md:text-3xl xl:text-4xl xl:font-normal;
+  @apply text-2xl font-semibold tracking-tight xl:text-3xl;
 }
 
 @utility text-h3 {
-  @apply font-bold tracking-tight text-xl md:text-2xl;
+  @apply font-bold tracking-tight text-xl xl:text-2xl;
 }
 
 @utility text-muted-sm {
