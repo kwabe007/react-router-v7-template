@@ -1,0 +1,9 @@
+# This docker-compose file is used for development purposes.
+
+services:
+  cms:
+    build:
+      context: .
+    env_file:
+      - .env.docker
+    network_mode: host

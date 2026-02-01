@@ -1,4 +1,28 @@
-.react-router
-build
-node_modules
+# ***** From .gitignore *****
+
+.DS_Store
+.env.*
+!.env.example
+/node_modules/
+
+# React Router
+/.react-router/
+/build/
+
+# Sentry Config File
+.env.sentry-build-plugin
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# ***** Additional patterns to ignore *****
+
+.git
+.gitignore
 README.md
+Dockerfile
+docker-compose.yml
