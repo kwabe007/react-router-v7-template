@@ -7,6 +7,7 @@
     "dev": "NODE_OPTIONS='--import ./instrument.server.mjs' react-router dev",
     "start": "cross-env NODE_ENV=production NODE_OPTIONS='--import ./instrument.server.mjs' react-router-serve ./build/server/index.js",
     "start:dotenv": "dotenv -- cross-env NODE_ENV=production NODE_OPTIONS='--import ./instrument.server.mjs' react-router-serve ./build/server/index.js",
+    "test": "dotenv playwright test",
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "@playwright/test": "^1.58.1",
     "@react-router/dev": "7.12.0",
     "@tailwindcss/vite": "^4.1.13",
     "@types/node": "^22",
