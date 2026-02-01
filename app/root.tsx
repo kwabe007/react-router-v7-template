@@ -6,8 +6,6 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "react-router";
-
-import type { Route } from "./+types/root";
 import "./app.css";
 import { serverSideClientEnv } from "~/env.server";
 import { useEffect } from "react";
@@ -31,7 +29,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export async function loader({ request }: Route.LoaderArgs) {
+export async function loader() {
   return { clientEnv: serverSideClientEnv };
 }
 
