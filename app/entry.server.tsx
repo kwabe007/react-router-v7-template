@@ -1,17 +1,39 @@
 import * as Sentry from "@sentry/react-router";
 import { PassThrough } from "node:stream";
 
-import type { EntryContext } from "react-router";
+import {
+  type EntryContext,
+  type HandleErrorFunction,
+  isRouteErrorResponse,
+} from "react-router";
 import { ServerRouter } from "react-router";
 import { createReadableStreamFromReadable } from "@react-router/node";
 import { isbot } from "isbot";
 import type { RenderToPipeableStreamOptions } from "react-dom/server";
 import { renderToPipeableStream } from "react-dom/server";
 
-export const handleError = Sentry.createSentryHandleError({
-  logErrors: true,
-});
+export const handleError: HandleErrorFunction = async function handleError(
+  error,
+  args,
+) {
+  // React Router may abort some interrupted requests, don't report those
+  if (args.request.signal.aborted) {
+    return;
+  }
 
+  // Ignore default ErrorResponses thrown from loaders/actions
+  if (isRouteErrorResponse(error)) {
+    return;
+  }
+
+  Sentry.captureException(error, {
+    mechanism: {
+      type: "react-router",
+      handled: false,
+    },
+  });
+  console.error(error);
+};
 export const streamTimeout = 5_000;
 
 function handleRequest(
