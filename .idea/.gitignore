@@ -8,3 +8,7 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+# Generated default module template
+/react-router-v7-template.iml
+# Generated modules list
+/modules.xml
