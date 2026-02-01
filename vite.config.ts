@@ -20,6 +20,8 @@ export default defineConfig((config) => {
           authToken: process.env.SENTRY_AUTH_TOKEN,
           sourcemaps: {
             filesToDeleteAfterUpload: "./build/**/*.map",
+            // Only upload sourcemaps if PUBLIC_SENTRY_DSN is set
+            disable: !env.PUBLIC_SENTRY_DSN,
           },
         },
         config,
