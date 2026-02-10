@@ -14,6 +14,12 @@ A modern, production-ready template for building full-stack React applications u
 - 🎉 TailwindCSS for styling
 - 📖 [React Router docs](https://reactrouter.com/)
 
+## Templates
+
+```bash
+pnpx create-react-router@latest --template remix-run/react-router-templates/<template-name>
+```
+
 ## Getting Started
 
 ### Installation
