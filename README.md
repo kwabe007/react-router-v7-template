@@ -4,9 +4,7 @@ A modern, production-ready template for building full-stack React applications u
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
 
-## Templates
-
-You can quickly create a new React Router application from any of these templates using the `create-react-router` CLI.
+You can quickly create a new React Router application from a template like this one using the `create-react-router` CLI.
 
 ```bash
 pnpx create-react-router@latest --template remix-run/react-router-templates/<template-name>
