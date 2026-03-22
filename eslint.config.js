@@ -25,6 +25,7 @@ export default defineConfig([
         "warn",
         { varsIgnorePattern: "^_" },
       ],
+      "@typescript-eslint/no-explicit-any": "off",
     },
   },
 
