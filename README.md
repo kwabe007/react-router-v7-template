@@ -7,7 +7,7 @@ A modern, production-ready template for building full-stack React applications u
 You can quickly create a new React Router application from a template like this one using the `create-react-router` CLI.
 
 ```bash
-pnpx create-react-router@latest --template remix-run/react-router-templates/<template-name>
+pnpx create-react-router@latest --template kwabe007/react-router-v7-template
 ```
 
 ## Features
