@@ -1,3 +1,5 @@
+import { useSyncExternalStore } from "react";
+
 /**
  * Joins a base URL with one or more path segments.
  *
@@ -13,4 +15,20 @@ export function buildUrl(base: string, ...paths: string[]): string {
   const normalizedPaths = paths.map((path) => path.replace(/^\/+|\/+$/g, ""));
 
   return [normalizedBase, ...normalizedPaths].join("/");
+}
+
+/**
+ * Return a boolean indicating if the JS has been hydrated already.
+ * When doing Server-Side Rendering, the result will always be false.
+ * When doing Client-Side Rendering, the result will always be false on the
+ * first render and true from then on. Even if a new component renders it will
+ * always start with true.
+ */
+// TODO: Check if the () => () => {} can replace the previous subscribe function
+export function useHydrated() {
+  return useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 }
