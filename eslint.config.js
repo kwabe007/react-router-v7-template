@@ -1,7 +1,7 @@
 import js from "@eslint/js";
 import globals from "globals";
 import tsEslint from "typescript-eslint";
-import pluginReact from "eslint-plugin-react";
+import reactPlugin from "eslint-plugin-react";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import { defineConfig } from "eslint/config";
 
@@ -31,7 +31,7 @@ export default defineConfig([
 
   // Plugin React
   {
-    ...pluginReact.configs.flat.recommended,
+    ...reactPlugin.configs.flat.recommended,
     settings: {
       react: {
         version: "detect",
@@ -61,6 +61,32 @@ export default defineConfig([
         "error",
         {
           inputComponents: ["StandardInput", "ValidatedInput"],
+        },
+      ],
+    },
+  },
+
+  // Plugin Import
+  {
+    ...importPlugin.flatConfigs.recommended,
+    settings: {
+      "import/resolver": {
+        typescript: {
+          project: "./tsconfig.json",
+        },
+        node: true,
+      },
+    },
+    rules: {
+      "import/order": [
+        "error",
+        {
+          groups: ["builtin", "external", "internal"],
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
+          "newlines-between": "always",
         },
       ],
     },
