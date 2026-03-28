@@ -1,9 +1,10 @@
 import js from "@eslint/js";
+import { defineConfig } from "eslint/config";
+import importPlugin from "eslint-plugin-import";
+import jsxA11y from "eslint-plugin-jsx-a11y";
+import reactPlugin from "eslint-plugin-react";
 import globals from "globals";
 import tsEslint from "typescript-eslint";
-import reactPlugin from "eslint-plugin-react";
-import jsxA11y from "eslint-plugin-jsx-a11y";
-import { defineConfig } from "eslint/config";
 
 export default defineConfig([
   // Plugin Javascript
