@@ -1,7 +1,8 @@
+import { type FormScope, useField } from "@rvf/react-router";
+
 import TextareaField, {
   type TextareaFieldProps,
 } from "~/components/TextareaField";
-import { type FormScope, useField } from "@rvf/react-router";
 
 interface ValidatedTextarea extends TextareaFieldProps {
   scope: FormScope<string>;

@@ -1,5 +1,6 @@
-import InputField, { type InputFieldProps } from "~/components/InputField";
 import { type FormScope, useField } from "@rvf/react-router";
+
+import InputField, { type InputFieldProps } from "~/components/InputField";
 
 interface ValidatedNumberField extends Omit<InputFieldProps, "type"> {
   scope: FormScope<number>;

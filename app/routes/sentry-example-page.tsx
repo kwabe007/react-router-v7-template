@@ -1,8 +1,10 @@
 import * as Sentry from "@sentry/react-router";
 import { useState, useEffect } from "react";
-import type { Route } from "./+types/sentry-example-page";
+
 import { serverEnv } from "~/env.server";
 import { notFound } from "~/utils/utils.server";
+
+import type { Route } from "./+types/sentry-example-page";
 
 class SentryExampleFrontendError extends Error {
   constructor(message: string | undefined) {

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   Links,
   Meta,
@@ -6,10 +7,11 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "react-router";
-import "./app.css";
+
 import { serverSideClientEnv } from "~/env.server";
-import { useEffect } from "react";
 import { RootErrorBoundary } from "~/root-components/RootErrorBoundary";
+
+import "./app.css";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (

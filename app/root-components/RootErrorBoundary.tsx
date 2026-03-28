@@ -1,7 +1,9 @@
-import type { Route } from "../../.react-router/types/app/+types/root";
-import { isRouteErrorResponse, Link } from "react-router";
 import * as Sentry from "@sentry/react-router";
+import { isRouteErrorResponse, Link } from "react-router";
+
 import { Button } from "~/components/ui/button";
+
+import type { Route } from "../../.react-router/types/app/+types/root";
 
 export function RootErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = "500";

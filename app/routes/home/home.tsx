@@ -1,6 +1,7 @@
-import logoLight from "./logo-light.svg";
-import logoDark from "./logo-dark.svg";
 import Container from "~/components/Container";
+
+import logoDark from "./logo-dark.svg";
+import logoLight from "./logo-light.svg";
 
 export function meta() {
   return [

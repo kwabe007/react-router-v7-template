@@ -1,16 +1,16 @@
-import * as Sentry from "@sentry/react-router";
 import { PassThrough } from "node:stream";
 
+import { createReadableStreamFromReadable } from "@react-router/node";
+import * as Sentry from "@sentry/react-router";
+import { isbot } from "isbot";
+import type { RenderToPipeableStreamOptions } from "react-dom/server";
+import { renderToPipeableStream } from "react-dom/server";
+import { ServerRouter } from "react-router";
 import {
   type EntryContext,
   type HandleErrorFunction,
   isRouteErrorResponse,
 } from "react-router";
-import { ServerRouter } from "react-router";
-import { createReadableStreamFromReadable } from "@react-router/node";
-import { isbot } from "isbot";
-import type { RenderToPipeableStreamOptions } from "react-dom/server";
-import { renderToPipeableStream } from "react-dom/server";
 
 export const handleError: HandleErrorFunction = async function handleError(
   error,

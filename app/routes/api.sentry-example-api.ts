@@ -1,7 +1,9 @@
 import * as Sentry from "@sentry/react-router";
+
 import { serverEnv } from "~/env.server";
-import type { Route } from "./+types/api.sentry-example-api";
 import { notFound } from "~/utils/utils.server";
+
+import type { Route } from "./+types/api.sentry-example-api";
 
 class SentryExampleBackendError extends Error {
   constructor(message: string | undefined) {
