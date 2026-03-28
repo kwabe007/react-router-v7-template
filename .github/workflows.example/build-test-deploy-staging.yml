@@ -1,10 +1,10 @@
 name: Build, test and deploy to staging
 
-# Uncomment to enable workflow
-#on:
-#  push:
-#    branches: [main]
-#  workflow_dispatch:
+  Uncomment to enable workflow
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
 
 env:
   REGISTRY: registry.gitlab.com
