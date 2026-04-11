@@ -5,5 +5,5 @@ services:
     build:
       context: .
     env_file:
-      - .env.docker
+      - .env
     network_mode: host
