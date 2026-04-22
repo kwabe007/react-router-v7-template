@@ -24,29 +24,40 @@ export default defineConfig([
     rules: {
       "@typescript-eslint/no-unused-vars": [
         "warn",
-        { varsIgnorePattern: "^_" },
+        { varsIgnorePattern: "^_", argsIgnorePattern: "^_" },
       ],
       "@typescript-eslint/no-explicit-any": "off",
     },
   },
 
   // Plugin React
+  reactPlugin.configs.flat.recommended,
+  reactPlugin.configs.flat["jsx-runtime"],
+
   {
-    ...reactPlugin.configs.flat.recommended,
+    files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
+    languageOptions: {
+      globals: {
+        ...globals.serviceworker,
+        ...globals.browser,
+      },
+    },
     settings: {
       react: {
-        version: "detect",
+        version: "detect", // Still good to have for rule accuracy
       },
     },
     rules: {
-      "react/react-in-jsx-scope": "off",
+      // You only list what you want to CHANGE from the recommended set
       "react/jsx-no-target-blank": ["error", { allowReferrer: true }],
+      "react/prop-types": "off",
     },
   },
 
   // Plugin JSX-A11y
+  jsxA11y.flatConfigs.recommended,
+
   {
-    ...jsxA11y.flatConfigs.recommended,
     settings: {
       "jsx-a11y": {
         components: {
@@ -68,8 +79,10 @@ export default defineConfig([
   },
 
   // Plugin Import
+  importPlugin.flatConfigs.recommended,
+
   {
-    ...importPlugin.flatConfigs.recommended,
+    /* Make the plugin aware of the project's import aliases */
     settings: {
       "import/resolver": {
         typescript: {

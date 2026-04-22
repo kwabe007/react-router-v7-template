@@ -1,6 +1,5 @@
 import { Label } from "@radix-ui/react-label";
 import { type ComponentProps, type ComponentType, useId } from "react";
-import * as React from "react";
 import { match } from "ts-pattern";
 
 import { cn } from "~/lib/utils";
