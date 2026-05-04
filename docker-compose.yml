@@ -1,7 +1,7 @@
 # This docker-compose file is used for development purposes.
 
 services:
-  cms:
+  web:
     build:
       context: .
     env_file:
