@@ -1,0 +1,6 @@
+allowBuilds:
+  "@sentry-internal/node-cpu-profiler": true
+  "@sentry/cli": true
+  esbuild: true
+  lefthook: true
+  unrs-resolver: true
