@@ -3,6 +3,7 @@ import { defineConfig } from "eslint/config";
 import importPlugin from "eslint-plugin-import";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import reactPlugin from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
 import tsEslint from "typescript-eslint";
 
@@ -53,6 +54,9 @@ export default defineConfig([
       "react/prop-types": "off",
     },
   },
+
+  // Plugin React Hooks
+  reactHooks.configs.flat.recommended,
 
   // Plugin JSX-A11y
   jsxA11y.flatConfigs.recommended,

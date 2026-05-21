@@ -53,7 +53,11 @@ export default function App() {
       });
       window.__plausibleInitialized = true;
     }
-  }, []);
+  }, [
+    clientEnv.PUBLIC_PLAUSIBLE_CAPTURE_ON_LOCALHOST,
+    clientEnv.PUBLIC_PLAUSIBLE_DOMAIN,
+    clientEnv.PUBLIC_PLAUSIBLE_ENDPOINT,
+  ]);
 
   return (
     <>
