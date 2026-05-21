@@ -23,6 +23,7 @@ export const handleError: HandleErrorFunction = async function handleError(
 
   // Ignore default ErrorResponses thrown from loaders/actions
   if (isRouteErrorResponse(error)) {
+    console.error(error.data);
     return;
   }
 

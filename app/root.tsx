@@ -11,6 +11,9 @@ import {
 import { serverSideClientEnv } from "~/env.server";
 import { RootErrorBoundary } from "~/root-components/RootErrorBoundary";
 
+import type { Route } from "./+types/root";
+export { type Route as RootRoute };
+
 import "./app.css";
 
 export function Layout({ children }: { children: React.ReactNode }) {

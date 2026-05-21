@@ -1,11 +1,11 @@
 import * as Sentry from "@sentry/react-router";
 import { isRouteErrorResponse, Link } from "react-router";
 
+import type { RootRoute } from "~/root";
+
 import { Button } from "~/components/ui/button";
 
-import type { Route } from "../../.react-router/types/app/+types/root";
-
-export function RootErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+export function RootErrorBoundary({ error }: RootRoute.ErrorBoundaryProps) {
   let message = "500";
   let details = "An unexpected error occurred.";
   let stack: string | undefined;
