@@ -22,7 +22,6 @@ lefthook.yml
 push_tag.sh
 README.md
 
-
 # Playwright
 /test-results/
 /playwright-report/
