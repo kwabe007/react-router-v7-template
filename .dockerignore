@@ -1,16 +1,27 @@
-# ***** From .gitignore *****
-
 .DS_Store
-.env.*
-!.env.example
-/node_modules/
 
-# React Router
-/.react-router/
+.github/
+.git/
+.idea/
+.react-router/
 /build/
+node_modules/
 
-# Sentry Config File
+.dockerignore
+.env
+.env.example
 .env.sentry-build-plugin
+.gitignore
+.prettierignore
+.prettierrc
+build-image.sh
+components.json
+docker-compose.yml
+Dockerfile
+lefthook.yml
+push_tag.sh
+README.md
+
 
 # Playwright
 /test-results/
@@ -18,11 +29,3 @@
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
-
-# ***** Additional patterns to ignore *****
-
-.git
-.gitignore
-README.md
-Dockerfile
-docker-compose.yml
