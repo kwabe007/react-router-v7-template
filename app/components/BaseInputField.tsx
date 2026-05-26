@@ -56,11 +56,11 @@ export default function BaseInputField(
         )}
         {match(propsRest)
           .with({ as: "input" }, (inputPropsRest) => {
-            const { as: _as, Icon, ...rest } = inputPropsRest;
+            const { as: _as, Icon, inputClassName, ...rest } = inputPropsRest;
             return (
               <Input
-                {...inputPropsRest}
-                className={cn(rest.inputClassName, Icon && "pl-10")}
+                {...rest}
+                className={cn(inputClassName, Icon && "pl-10")}
                 id={id}
                 aria-describedby={ariaDescribedBy}
                 aria-invalid={!!errorMessage}
@@ -68,11 +68,16 @@ export default function BaseInputField(
             );
           })
           .with({ as: "textarea" }, (textareaPropsRest) => {
-            const { as: _as, Icon, ...rest } = textareaPropsRest;
+            const {
+              as: _as,
+              Icon,
+              inputClassName,
+              ...rest
+            } = textareaPropsRest;
             return (
               <Textarea
                 {...rest}
-                className={cn(rest.inputClassName, Icon && "pl-10")}
+                className={cn(inputClassName, Icon && "pl-10")}
                 id={id}
                 aria-describedby={ariaDescribedBy}
                 aria-invalid={!!errorMessage}
