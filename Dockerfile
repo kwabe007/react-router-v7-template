@@ -3,7 +3,7 @@ FROM node:24.12.0-alpine AS base
 # For preventing "No TTY" errors from pnpm during container runtime
 ENV CI=true
 
-RUN corepack enable pnpm && corepack prepare pnpm@11.1.1 --activate
+RUN npm install -g pnpm@11.1.1
 
 
 # Install dependencies
