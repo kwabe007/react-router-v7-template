@@ -1,4 +1,8 @@
 import { useSyncExternalStore } from "react";
+import { useRouteLoaderData } from "react-router";
+
+import type { ClientEnv } from "~/env.server";
+import { type loader } from "~/root";
 
 /**
  * Joins a base URL with one or more path segments.
@@ -31,4 +35,21 @@ export function useHydrated() {
     () => true,
     () => false,
   );
+}
+
+/**
+ * A custom hook that retrieves the `clientEnv` object from the root loader data.
+ * This hook ensures that the required environment data is available and throws an error
+ * if it is not found.
+ *
+ * @return {ClientEnv} The client environment configuration, as retrieved from the root loader data.
+ */
+export function useClientEnv(): ClientEnv {
+  const data = useRouteLoaderData<typeof loader>("root");
+  if (!data) {
+    throw new Error(
+      "No data found in root loader, but clientEnv is required by useClientEnv.",
+    );
+  }
+  return data.clientEnv;
 }
