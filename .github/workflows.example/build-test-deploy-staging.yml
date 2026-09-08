@@ -13,7 +13,7 @@ env:
   DOKPLOY_DEPLOY_ENDPOINT: ${{ vars.DOKPLOY_DEPLOY_ENDPOINT }}
   DOKPLOY_ACCESS_TOKEN: ${{ secrets.DOKPLOY_ACCESS_TOKEN }}
   DOKPLOY_STAGING_APP_ID: ${{ vars.DOKPLOY_STAGING_APP_ID }}
-  IMAGE_NAME: registry.gitlab.com/${{ vars.GITLAB_PROJECT_PATH }}/react-router-app # Change to your app name
+  IMAGE_NAME: ${{ vars.IMAGE_NAME }}
   GITHUB_SHA: ${{ github.sha }}
 
 jobs:
