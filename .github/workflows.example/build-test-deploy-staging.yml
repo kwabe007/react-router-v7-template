@@ -1,6 +1,5 @@
 name: Build, test and deploy to staging
 
-  Uncomment to enable workflow
 on:
   push:
     branches: [main]
