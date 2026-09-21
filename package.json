@@ -4,7 +4,9 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
+    "check": "run-p typecheck lint",
     "dev": "NODE_OPTIONS='--import ./instrument.server.mjs' react-router dev",
+    "lint": "eslint",
     "start": "cross-env NODE_ENV=production NODE_OPTIONS='--import ./instrument.server.mjs' react-router-serve ./build/server/index.js",
     "start:dotenv": "dotenv -- cross-env NODE_ENV=production NODE_OPTIONS='--import ./instrument.server.mjs' react-router-serve ./build/server/index.js",
     "test": "dotenv playwright test",
@@ -24,6 +26,7 @@
     "cross-env": "^10.1.0",
     "isbot": "^5.1.31",
     "lucide-react": "^0.563.0",
+    "npm-run-all2": "^9.0.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router": "7.15.1",

@@ -10,12 +10,12 @@ import {
 
 import { serverSideClientEnv } from "~/env.server";
 import { RootErrorBoundary } from "~/root-components/RootErrorBoundary";
+import { initPlausible } from "~/services/plausible.client/init-plausible";
 
 import type { Route } from "./+types/root";
 export { type Route as RootRoute };
 
 import "./app.css";
-import { initPlausible } from "~/services/plausible.client/init-plausible";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
