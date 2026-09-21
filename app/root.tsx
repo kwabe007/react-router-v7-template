@@ -15,6 +15,7 @@ import type { Route } from "./+types/root";
 export { type Route as RootRoute };
 
 import "./app.css";
+import { initPlausible } from "~/services/plausible.client/init-plausible";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -42,25 +43,8 @@ export default function App() {
   const { clientEnv } = useLoaderData<typeof loader>();
 
   useEffect(() => {
-    const domain = clientEnv.PUBLIC_PLAUSIBLE_DOMAIN;
-    const endpoint = clientEnv.PUBLIC_PLAUSIBLE_ENDPOINT;
-
-    if (domain && endpoint && !window.__plausibleInitialized) {
-      import("@plausible-analytics/tracker/plausible.js").then(({ init }) => {
-        init({
-          domain,
-          // Use an app route which proxies an external plausible instance to prevent adblockers from blocking the request.
-          endpoint,
-          captureOnLocalhost: clientEnv.PUBLIC_PLAUSIBLE_CAPTURE_ON_LOCALHOST,
-        });
-      });
-      window.__plausibleInitialized = true;
-    }
-  }, [
-    clientEnv.PUBLIC_PLAUSIBLE_CAPTURE_ON_LOCALHOST,
-    clientEnv.PUBLIC_PLAUSIBLE_DOMAIN,
-    clientEnv.PUBLIC_PLAUSIBLE_ENDPOINT,
-  ]);
+    initPlausible();
+  });
 
   return (
     <>
